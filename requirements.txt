@@ -5,3 +5,4 @@ statsmodels
 arch
 ruptures
 jupyter
+TensorFlow
