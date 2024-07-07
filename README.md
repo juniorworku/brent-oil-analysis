@@ -1,119 +1,142 @@
-# Brent Oil Price Analysis
+# Brent Oil Price Analysis and Prediction
 
-This project aims to analyze how important events affect Brent oil prices. The focus is on identifying how changes in oil prices are linked to significant events such as political decisions, conflicts in oil-producing regions, global economic sanctions, and changes in Organization of the Petroleum Exporting Countries (OPEC) policies. The goal is to provide clear insights to help investors, analysts, and policymakers understand and react to these price changes better.
+This project focuses on the analysis and prediction of Brent oil prices using various advanced time series models and machine learning techniques. The analysis includes historical trends, regime changes, and future price predictions, with models like ARIMA, Markov-Switching ARIMA, and Long Short-Term Memory (LSTM) networks.
 
-## Project Structure
+## Table of Contents
 
-brent-oil-analysis/
-├── .github/
-│ └── workflows/
-│ └── ci.yml
-├── .vscode/
-│ ├── settings.json
-│ ├── launch.json
-│ └── tasks.json
-├── data/
-│ └── BrentOilPrices.csv
-├── notebooks/
-│ └── analysis.ipynb
-├── scripts/
-│ └── data_analysis.py
-├── venv/
-├── .gitignore
-├── requirements.txt
-└── README.md
+- [Introduction](#introduction)
+- [Data Collection and Preprocessing](#data-collection-and-preprocessing)
+- [Exploratory Data Analysis (EDA)](#exploratory-data-analysis-eda)
+- [Advanced Time Series Models](#advanced-time-series-models)
+  - [Markov-Switching ARIMA Model](#markov-switching-arima-model)
+- [Machine Learning Model](#machine-learning-model)
+  - [LSTM Model](#lstm-model)
+- [Factors Influencing Oil Prices](#factors-influencing-oil-prices)
+  - [Economic Indicators](#economic-indicators)
+  - [Technological Changes](#technological-changes)
+  - [Political and Regulatory Factors](#political-and-regulatory-factors)
+- [Adapting the Model to New Scenarios](#adapting-the-model-to-new-scenarios)
+- [Conclusion and Recommendations](#conclusion-and-recommendations)
+- [Usage](#usage)
+- [Dependencies](#dependencies)
+- [Authors](#authors)
 
-## Installation
+## Introduction
 
-### Prerequisites
+Brent crude oil is a major benchmark for global oil prices, influenced by various economic, technological, and geopolitical factors. Accurate modeling and prediction of oil prices are crucial for stakeholders in energy markets. This project utilizes a combination of statistical and machine learning models to provide a detailed examination and predictive modeling of historical Brent oil prices.
 
-- Python 3.12
-- Git
-- Virtual environment tools (`venv` or `conda`)
+## Data Collection and Preprocessing
 
-### Setup
+**Dataset:**
 
-1. **Clone the repository**:
+- Historical Brent oil prices from 1987 to 2024.
 
-   ```sh
-   git clone https://github.com/juniorworku/brent-oil-analysis.git
-   cd brent-oil-analysis
-   ```
+**Preprocessing Steps:**
 
-2. **Create a virtual environment**:
+- Convert the date column to datetime format.
+- Handle missing values and outliers.
+- Normalize data for machine learning models.
 
-   ```sh
-   python -m venv venv
-   ```
+## Exploratory Data Analysis (EDA)
 
-3. **Activate the virtual environment**:
+**Historical Trends:**
 
-   - **Windows (PowerShell)**:
+- The time series plot reveals significant volatility and price changes over the years.
+- Key spikes correspond to historical events such as the 2008 financial crisis and recent geopolitical tensions.
 
-     ```powershell
-     .\venv\Scripts\Activate
-     ```
+## Advanced Time Series Models
 
-   - **Windows (Command Prompt)**:
+### Markov-Switching ARIMA Model
 
-     ```cmd
-     .\venv\Scripts\activate
-     ```
+**Model Overview:**
 
-   - **macOS/Linux**:
-     ```sh
-     source venv/bin/activate
-     ```
+- Captures regime changes in the time series data.
+- Identifies different states (regimes) with distinct statistical properties.
 
-4. **Install the dependencies**:
-   ```sh
-   pip install -r requirements.txt
-   ```
+**Results:**
+
+- Detailed model output including parameters for different regimes.
+
+**Visualization:**
+
+- Plot showing regime probabilities over time.
+
+## Machine Learning Model
+
+### LSTM Model
+
+**Model Overview:**
+
+- Captures long-term dependencies in time series data.
+- Utilizes past price movements to predict future prices.
+
+**Results:**
+
+- Model performance metrics and loss values.
+
+**Visualization:**
+
+- Plot showing actual prices vs. predicted prices for training and testing datasets.
+
+## Factors Influencing Oil Prices
+
+### Economic Indicators
+
+- GDP, Inflation Rates, Unemployment Rates, Exchange Rates.
+
+### Technological Changes
+
+- Advancements in Extraction Technologies, Renewable Energy Developments, Efficiency Improvements.
+
+### Political and Regulatory Factors
+
+- Environmental Regulations, Trade Policies.
+
+## Adapting the Model to New Scenarios
+
+- Extend the analysis framework to other commodities or related markets.
+- Integrate additional data sources like economic reports, technological advancements, and regulatory changes.
+- Validate the model’s performance using cross-validation techniques.
+
+## Conclusion and Recommendations
+
+This analysis provides valuable insights into historical trends, regime changes, and future price predictions for Brent oil prices. The findings can inform risk management and decision-making strategies in the oil market.
+
+**Recommendations:**
+
+- Deploy the trained LSTM model for real-time forecasting.
+- Continuously update and retrain the model with new data.
+- Incorporate additional features such as economic indicators and geopolitical events.
+- Explore other advanced models and techniques for improved forecasting.
 
 ## Usage
 
-### Running the Analysis
+1. Clone the repository:
 
-1. **Jupyter Notebook**:
-   - Start Jupyter Notebook:
-     ```sh
-     jupyter notebook
-     ```
-   - Open `notebooks/EDA.ipynb` and run the cells.
+   ```bash
+   git clone https://github.com/juniorworku/brent-oil-price-analysis.git
+   cd brent-oil-price-analysis
 
-### Testing
+   ```
 
-- Run the tests (if any):
-  ```sh
-  python -m unittest discover -s tests
-  ```
+2. Install the required dependencies:
 
-### Continuous Integration
+   ```bash
+   pip install -r requirements.txt
 
-- This project uses GitHub Actions for continuous integration. The configuration is located in .github/workflows/ci.yml.
+   ```
 
-### VSCode Configuration
+3. Run the analysis:
 
-- The project includes configuration files for Visual Studio Code in the .vscode folder:
+### Dependencies
 
-settings.json for workspace settings
-launch.json for debugging configurations
-tasks.json for defining tasks
-
-### Data
-
-- The dataset used in this project contains historical Brent oil prices from May 20, 1987, to September 30, 2022.
-  - Date: The date of the recorded Brent oil price.
-  - Price: The price of Brent oil in USD per barrel.
-
-### Insights and Results
-
-- Detailed insights and results of the analysis are available in the Jupyter Notebook notebooks/EDA.ipynb.
-  -The analysis focuses on identifying key events that significantly impacted Brent oil prices and measuring the extent of their impact.
-
-### Conclusion
-
-The analysis aims to provide actionable insights for investors, analysts, and policymakers to better understand and react to changes in Brent oil prices.
+-Python 3.x
+-Pandas
+-NumPy
+-Scikit-learn
+-Statsmodels
+-TensorFlow
+-Matplotlib
 
 ### Contributing
 
